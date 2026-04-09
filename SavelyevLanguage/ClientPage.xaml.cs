@@ -36,7 +36,7 @@ namespace SavelyevLanguage
         {
             PageListBox.Items.Clear();
 
-            int totalPages = (currentClient.Count)
+            //int totalPages = (currentClient.Count)
         }
 
         private void PageListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
