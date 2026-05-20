@@ -217,5 +217,26 @@ namespace SavelyevLanguage
         {
             UpdateClients();
         }
+
+        private void EditBtn_Click(object sender, RoutedEventArgs e)
+        {
+            Button btn = sender as Button;
+            Client client = btn.DataContext as Client;
+
+            if (client != null)
+            {
+                NavigationService.Navigate(new AddEditPage(client));
+            }
+        }
+
+        private void AddBtn_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new AddEditPage(null));
+        }
+
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            UpdateClients();
+        }
     }
 }

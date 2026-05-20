@@ -6,7 +6,8 @@
       xmlns:local="clr-namespace:SavelyevLanguage"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="ClientPage" FontFamily="Comic Sans MS">
+      Title="ClientPage" FontFamily="Comic Sans MS"
+      Loaded="Page_Loaded">
 
     <Grid>
         <Grid.RowDefinitions>
@@ -18,6 +19,7 @@
         
         <Grid Grid.Row="0">
             <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
                 <ColumnDefinition Width="auto"/>
                 <ColumnDefinition Width="auto"/>
                 <ColumnDefinition Width="auto"/>
@@ -46,6 +48,8 @@
                     <TextBlock>По количеству посещений</TextBlock>
                 </ComboBox>
             </StackPanel>
+
+            <Button Name="AddBtn" Content="Добавить" Grid.Column="3" Click="AddBtn_Click" Margin="15,0,0,0"></Button>
         </Grid>
 
         <ListView Name="ClientListView" Grid.Row="1">
@@ -106,8 +110,8 @@
                                 <TextBlock Text="{Binding VisitsCount, StringFormat=Кол-во посещений: {0}}" FontSize="15" HorizontalAlignment="Left"></TextBlock>
                             </StackPanel>
 
-                            <Button Content="Удалить" Name="DeleteBtn" Grid.Column="2" Grid.RowSpan="5" HorizontalAlignment="Center" 
-                                    VerticalAlignment="Center" Click="DeleteBtn_Click"></Button>
+                            <Button Content="Удалить" Name="DeleteBtn" Grid.Column="2" Grid.Row="1" HorizontalAlignment="Center" Click="DeleteBtn_Click"></Button>
+                            <Button Content="Редактировать" Name="EditBtn" Grid.Column="2" Grid.Row="3" HorizontalAlignment="Center" Click="EditBtn_Click"></Button>
                         </Grid>
                     </Border>
                 </DataTemplate>
