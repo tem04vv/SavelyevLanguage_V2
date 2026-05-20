@@ -11,7 +11,8 @@ namespace SavelyevLanguage
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.Linq;
+
     public partial class Client
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -46,6 +47,33 @@ namespace SavelyevLanguage
             get
             {
                 return Gender.Name;
+            }
+        }
+
+        public DateTime? LastVisitDate
+        {
+            get
+            {
+                if (ClientService != null && ClientService.Any())
+                {
+                    return ClientService.Select(x => x.StartTime).Max();
+                }
+                else
+                {
+                    return null;
+                }
+            }
+        }
+        public int VisitsCount
+        {
+            get
+            {
+                if (ClientService != null)
+                    return ClientService.Count();               
+                else
+                {
+                    return 0;
+                }
             }
         }
 
