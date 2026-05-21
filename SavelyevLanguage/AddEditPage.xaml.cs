@@ -159,10 +159,12 @@ namespace SavelyevLanguage
                 errors.AppendLine("Заполните телефон!");
             else
             {
-                if (Phone_TextBox.Text.Length < 9)
-                    errors.AppendLine("Телефон не может содержать менее 9 цифр!");
-                if (Phone_TextBox.Text.Length > 16)
-                    errors.AppendLine("Телефон не может быть длиннее 16 символов!");
+                int digitCount = Phone_TextBox.Text.Count(char.IsDigit);
+
+                if (digitCount < 9)
+                    errors.AppendLine("Телефон должен содержать не менее 9 цифр!");
+                if (digitCount > 11)
+                    errors.AppendLine("Телефон должен содержать не более 11 цифр!");
                 if (!IsValidPhone(Phone_TextBox.Text))
                     errors.AppendLine("Телефон может содержать только цифры и символы: + - ( ) пробел");
             }
